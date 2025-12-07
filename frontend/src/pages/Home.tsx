@@ -3,7 +3,7 @@ import SideNavigation from "../components/SideNavigation";
 
 const Home = () => {
   return (
-    <section>
+    <section className="flex">
       <SideNavigation />
       <Dashboard />
     </section>

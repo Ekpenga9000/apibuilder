@@ -25,13 +25,13 @@ const SideNavigation = () => {
         </li>
         <li
           className={
-            isClicked === "Projects"
+            isClicked === "Servers"
               ? "side-nav-item side-nav-item--clicked"
               : "side-nav-item"
           }
-          onClick={() => handleClick("Projects")}>
+          onClick={() => handleClick("Servers")}>
           <GoServer />
-          Projects
+          Servers
         </li>
         <li
           className={
