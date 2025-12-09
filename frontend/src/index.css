@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-family: "Inter", sans-serif;
+}
+
 .side-nav-item {
   @apply p-2 cursor-pointer hover:bg-gray-100 rounded hover:ease-in-out hover:duration-200 flex items-center gap-4 text-gray-600;
 }
