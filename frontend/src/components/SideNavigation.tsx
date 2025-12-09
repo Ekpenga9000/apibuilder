@@ -1,58 +1,42 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { GoProject, GoDatabase, GoGear, GoServer } from "react-icons/go";
+import type { IconType } from "react-icons";
+
+interface NavItem {
+  path: string;
+  label: string;
+  icon: IconType;
+}
 
 const SideNavigation = () => {
-  const [isClicked, setIsClicked] = useState("Dashboard");
+  const location = useLocation();
   const navigate = useNavigate();
 
-  const handleClick = (item: string) => {
-    setIsClicked(item);
-    navigate(`/userid/${item.toLowerCase()}`);
+  const navItems: NavItem[] = [
+    { path: "/dashboard", label: "Dashboard", icon: GoProject },
+    { path: "/servers", label: "Servers", icon: GoServer },
+    { path: "/data_viewer", label: "Data Viewer", icon: GoDatabase },
+    { path: "/account", label: "Account", icon: GoGear },
+  ];
+
+  const handleClick = (path: string) => {
+    navigate(path);
   };
+
   return (
     <aside className="w-64 h-full p-4 border-r border-gray-200 min-h-screen">
       <ul className="space-y-4">
-        <li
-          className={
-            isClicked === "Dashboard"
-              ? "side-nav-item side-nav-item--clicked"
-              : "side-nav-item"
-          }
-          onClick={() => handleClick("Dashboard")}>
-          <GoProject />
-          Dashboard
-        </li>
-        <li
-          className={
-            isClicked === "Servers"
-              ? "side-nav-item side-nav-item--clicked"
-              : "side-nav-item"
-          }
-          onClick={() => handleClick("Servers")}>
-          <GoServer />
-          Servers
-        </li>
-        <li
-          className={
-            isClicked === "Data Viewer"
-              ? "side-nav-item side-nav-item--clicked"
-              : "side-nav-item"
-          }
-          onClick={() => handleClick("Data_Viewer")}>
-          <GoDatabase />
-          Data Viewer
-        </li>
-        <li
-          className={
-            isClicked === "Account"
-              ? "side-nav-item side-nav-item--clicked"
-              : "side-nav-item"
-          }
-          onClick={() => handleClick("Account")}>
-          <GoGear />
-          Account
-        </li>
+        {navItems.map(({ path, label, icon: Icon }) => (
+          <li
+            key={path}
+            className={`side-nav-item ${
+              location.pathname === path ? "side-nav-item--clicked" : ""
+            }`}
+            onClick={() => handleClick(path)}>
+            <Icon />
+            {label}
+          </li>
+        ))}
       </ul>
     </aside>
   );

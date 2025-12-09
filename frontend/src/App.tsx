@@ -13,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<h1>Welcome to the Frontend</h1>} />
           <Route path="/dashboard" element={<Home />} />
+          <Route path="/servers" element={<Home />} />
         </Routes>
       </div>
     </BrowserRouter>
