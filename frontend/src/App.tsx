@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Servers from "./pages/Servers";
 import DataViewer from "./pages/DataViewer";
 import Accounts from "./pages/Accounts";
+import ServerDetails from "./pages/ServerDetails";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/servers" element={<Servers />} />
+            <Route path="/servers/:serverId" element={<ServerDetails />} />
             <Route path="/data_viewer" element={<DataViewer />} />
             <Route path="/account" element={<Accounts />} />
           </Route>

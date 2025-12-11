@@ -1,0 +1,76 @@
+{
+  "servers": [
+    {
+      "id": "srv-001",
+      "name": "User Service Management",
+      "totalApis": 5,
+      "activeApis": 4,
+      "inactiveApis": 1,
+      "lastModified": "1 day ago",
+      "status": "running"
+    },
+    {
+      "id": "srv-002",
+      "name": "Order Processing",
+      "totalApis": 8,
+      "activeApis": 7,
+      "inactiveApis": 1,
+      "lastModified": "2 days ago",
+      "status": "stopped"
+    },
+    {
+      "id": "srv-003",
+      "name": "Inventory Management",
+      "totalApis": 9,
+      "activeApis": 9,
+      "inactiveApis": 0,
+      "lastModified": "3 days ago",
+      "status": "running"
+    },
+    {
+      "id": "srv-004",
+      "name": "Payment Gateway Integration",
+      "totalApis": 6,
+      "activeApis": 5,
+      "inactiveApis": 1,
+      "lastModified": "3 weeks ago",
+      "status": "running"
+    },
+    {
+      "id": "srv-005",
+      "name": "Authentication Service",
+      "totalApis": 4,
+      "activeApis": 4,
+      "inactiveApis": 0,
+      "lastModified": "5 hours ago",
+      "status": "running"
+    },
+    {
+      "id": "srv-006",
+      "name": "Notification Service",
+      "totalApis": 7,
+      "activeApis": 5,
+      "inactiveApis": 2,
+      "lastModified": "1 week ago",
+      "status": "error"
+    },
+    {
+      "id": "srv-007",
+      "name": "Analytics Engine",
+      "totalApis": 12,
+      "activeApis": 10,
+      "inactiveApis": 2,
+      "lastModified": "4 days ago",
+      "status": "running"
+    },
+    {
+      "id": "srv-008",
+      "name": "File Storage Service",
+      "totalApis": 3,
+      "activeApis": 2,
+      "inactiveApis": 1,
+      "lastModified": "2 weeks ago",
+      "status": "stopped"
+    }
+  ]
+}
