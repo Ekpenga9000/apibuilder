@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { StatusPill } from "./ServerPills";
 
 interface ServerInfoProps {
   id: string | number;
@@ -40,21 +41,7 @@ const ServerItem = ({
       </td>
       <td className="py-3 px-4 text-gray-600 text-sm">{lastModified}</td>
       <td className="py-3 px-4">
-        <span className="flex items-center gap-2 text-xs">
-          <span
-            className={`w-2 h-2 rounded-full ${
-              status === "running"
-                ? "bg-green-500"
-                : status === "stopped"
-                ? "bg-gray-400"
-                : "bg-red-500"
-            }`}></span>
-          {status === "running"
-            ? "Running"
-            : status === "stopped"
-            ? "Stopped"
-            : "Error"}
-        </span>
+        <StatusPill status={status || "error"} />
       </td>
     </tr>
   );

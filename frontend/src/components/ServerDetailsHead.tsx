@@ -1,5 +1,6 @@
 import { GoPencil, GoServer, GoSquareFill, GoX } from "react-icons/go";
 import { IoPlay } from "react-icons/io5";
+import { StatusPill } from "./ServerPills";
 
 interface ServerDetailsHeadProps {
   id: string | number;
@@ -34,22 +35,7 @@ const ServerDetailsHead: React.FC<ServerDetailsHeadProps> = ({
 
         <ul className="flex items-center gap-4 mb-4 text-sm">
           <li className="text-gray-600">
-            Status:{" "}
-            {status === "running" && (
-              <span className="shadow-sm py-1 px-2 rounded-md text-xs bg-green-500 text-white">
-                Running
-              </span>
-            )}
-            {status === "stopped" && (
-              <span className="shadow-sm py-1 px-2 rounded-md text-xs bg-gray-400 text-white">
-                Stopped
-              </span>
-            )}
-            {status === "error" && (
-              <span className="shadow-sm py-1 px-2 rounded-md text-xs bg-red-500 text-white">
-                Error
-              </span>
-            )}
+            Status: <StatusPill status={status || "error"} />
           </li>
           <li>
             {status === "running" && (

@@ -1,0 +1,490 @@
+{
+  "apis": [
+    {
+      "id": "api-001",
+      "serverId": "srv-001",
+      "name": "Get Users",
+      "method": "GET",
+      "endpoint": "/api/users",
+      "status": "running",
+      "lastModified": "2024-12-10"
+    },
+    {
+      "id": "api-002",
+      "serverId": "srv-001",
+      "name": "Create User",
+      "method": "POST",
+      "endpoint": "/api/users",
+      "status": "running",
+      "lastModified": "2024-12-09"
+    },
+    {
+      "id": "api-003",
+      "serverId": "srv-001",
+      "name": "Update User",
+      "method": "PUT",
+      "endpoint": "/api/users/:id",
+      "status": "running",
+      "lastModified": "2024-12-08"
+    },
+    {
+      "id": "api-004",
+      "serverId": "srv-001",
+      "name": "Delete User",
+      "method": "DELETE",
+      "endpoint": "/api/users/:id",
+      "status": "stopped",
+      "lastModified": "2024-12-05"
+    },
+    {
+      "id": "api-005",
+      "serverId": "srv-001",
+      "name": "Get User Profile",
+      "method": "GET",
+      "endpoint": "/api/users/:id/profile",
+      "status": "running",
+      "lastModified": "2024-12-11"
+    },
+    {
+      "id": "api-006",
+      "serverId": "srv-002",
+      "name": "Get Orders",
+      "method": "GET",
+      "endpoint": "/api/orders",
+      "status": "running",
+      "lastModified": "2024-12-09"
+    },
+    {
+      "id": "api-007",
+      "serverId": "srv-002",
+      "name": "Create Order",
+      "method": "POST",
+      "endpoint": "/api/orders",
+      "status": "running",
+      "lastModified": "2024-12-08"
+    },
+    {
+      "id": "api-008",
+      "serverId": "srv-002",
+      "name": "Update Order Status",
+      "method": "PUT",
+      "endpoint": "/api/orders/:id/status",
+      "status": "running",
+      "lastModified": "2024-12-07"
+    },
+    {
+      "id": "api-009",
+      "serverId": "srv-002",
+      "name": "Cancel Order",
+      "method": "DELETE",
+      "endpoint": "/api/orders/:id",
+      "status": "stopped",
+      "lastModified": "2024-12-04"
+    },
+    {
+      "id": "api-010",
+      "serverId": "srv-002",
+      "name": "Get Order Details",
+      "method": "GET",
+      "endpoint": "/api/orders/:id",
+      "status": "running",
+      "lastModified": "2024-12-10"
+    },
+    {
+      "id": "api-011",
+      "serverId": "srv-002",
+      "name": "Get Order History",
+      "method": "GET",
+      "endpoint": "/api/orders/:id/history",
+      "status": "running",
+      "lastModified": "2024-12-06"
+    },
+    {
+      "id": "api-012",
+      "serverId": "srv-002",
+      "name": "Process Payment",
+      "method": "POST",
+      "endpoint": "/api/orders/:id/payment",
+      "status": "running",
+      "lastModified": "2024-12-05"
+    },
+    {
+      "id": "api-013",
+      "serverId": "srv-002",
+      "name": "Apply Discount",
+      "method": "PUT",
+      "endpoint": "/api/orders/:id/discount",
+      "status": "running",
+      "lastModified": "2024-12-03"
+    },
+    {
+      "id": "api-014",
+      "serverId": "srv-003",
+      "name": "Get Inventory",
+      "method": "GET",
+      "endpoint": "/api/inventory",
+      "status": "running",
+      "lastModified": "2024-12-11"
+    },
+    {
+      "id": "api-015",
+      "serverId": "srv-003",
+      "name": "Add Item",
+      "method": "POST",
+      "endpoint": "/api/inventory/items",
+      "status": "running",
+      "lastModified": "2024-12-10"
+    },
+    {
+      "id": "api-016",
+      "serverId": "srv-003",
+      "name": "Update Stock",
+      "method": "PUT",
+      "endpoint": "/api/inventory/items/:id/stock",
+      "status": "running",
+      "lastModified": "2024-12-09"
+    },
+    {
+      "id": "api-017",
+      "serverId": "srv-003",
+      "name": "Remove Item",
+      "method": "DELETE",
+      "endpoint": "/api/inventory/items/:id",
+      "status": "running",
+      "lastModified": "2024-12-08"
+    },
+    {
+      "id": "api-018",
+      "serverId": "srv-003",
+      "name": "Get Low Stock Items",
+      "method": "GET",
+      "endpoint": "/api/inventory/low-stock",
+      "status": "running",
+      "lastModified": "2024-12-07"
+    },
+    {
+      "id": "api-019",
+      "serverId": "srv-003",
+      "name": "Transfer Stock",
+      "method": "POST",
+      "endpoint": "/api/inventory/transfer",
+      "status": "running",
+      "lastModified": "2024-12-06"
+    },
+    {
+      "id": "api-020",
+      "serverId": "srv-003",
+      "name": "Get Warehouse Locations",
+      "method": "GET",
+      "endpoint": "/api/inventory/warehouses",
+      "status": "running",
+      "lastModified": "2024-12-05"
+    },
+    {
+      "id": "api-021",
+      "serverId": "srv-003",
+      "name": "Bulk Update Stock",
+      "method": "PUT",
+      "endpoint": "/api/inventory/bulk-update",
+      "status": "running",
+      "lastModified": "2024-12-04"
+    },
+    {
+      "id": "api-022",
+      "serverId": "srv-003",
+      "name": "Export Inventory Report",
+      "method": "GET",
+      "endpoint": "/api/inventory/export",
+      "status": "running",
+      "lastModified": "2024-12-03"
+    },
+    {
+      "id": "api-023",
+      "serverId": "srv-004",
+      "name": "Process Payment",
+      "method": "POST",
+      "endpoint": "/api/payments/process",
+      "status": "running",
+      "lastModified": "2024-11-20"
+    },
+    {
+      "id": "api-024",
+      "serverId": "srv-004",
+      "name": "Refund Payment",
+      "method": "POST",
+      "endpoint": "/api/payments/refund",
+      "status": "running",
+      "lastModified": "2024-11-18"
+    },
+    {
+      "id": "api-025",
+      "serverId": "srv-004",
+      "name": "Get Payment Status",
+      "method": "GET",
+      "endpoint": "/api/payments/:id/status",
+      "status": "running",
+      "lastModified": "2024-11-22"
+    },
+    {
+      "id": "api-026",
+      "serverId": "srv-004",
+      "name": "Get Payment Methods",
+      "method": "GET",
+      "endpoint": "/api/payments/methods",
+      "status": "running",
+      "lastModified": "2024-11-15"
+    },
+    {
+      "id": "api-027",
+      "serverId": "srv-004",
+      "name": "Verify Payment",
+      "method": "POST",
+      "endpoint": "/api/payments/verify",
+      "status": "stopped",
+      "lastModified": "2024-11-10"
+    },
+    {
+      "id": "api-028",
+      "serverId": "srv-004",
+      "name": "Get Transaction History",
+      "method": "GET",
+      "endpoint": "/api/payments/transactions",
+      "status": "running",
+      "lastModified": "2024-11-25"
+    },
+    {
+      "id": "api-029",
+      "serverId": "srv-005",
+      "name": "Login",
+      "method": "POST",
+      "endpoint": "/api/auth/login",
+      "status": "running",
+      "lastModified": "2024-12-11"
+    },
+    {
+      "id": "api-030",
+      "serverId": "srv-005",
+      "name": "Logout",
+      "method": "POST",
+      "endpoint": "/api/auth/logout",
+      "status": "running",
+      "lastModified": "2024-12-11"
+    },
+    {
+      "id": "api-031",
+      "serverId": "srv-005",
+      "name": "Refresh Token",
+      "method": "POST",
+      "endpoint": "/api/auth/refresh",
+      "status": "running",
+      "lastModified": "2024-12-11"
+    },
+    {
+      "id": "api-032",
+      "serverId": "srv-005",
+      "name": "Verify Token",
+      "method": "GET",
+      "endpoint": "/api/auth/verify",
+      "status": "running",
+      "lastModified": "2024-12-10"
+    },
+    {
+      "id": "api-033",
+      "serverId": "srv-006",
+      "name": "Send Email",
+      "method": "POST",
+      "endpoint": "/api/notifications/email",
+      "status": "running",
+      "lastModified": "2024-12-04"
+    },
+    {
+      "id": "api-034",
+      "serverId": "srv-006",
+      "name": "Send SMS",
+      "method": "POST",
+      "endpoint": "/api/notifications/sms",
+      "status": "error",
+      "lastModified": "2024-12-03"
+    },
+    {
+      "id": "api-035",
+      "serverId": "srv-006",
+      "name": "Send Push Notification",
+      "method": "POST",
+      "endpoint": "/api/notifications/push",
+      "status": "running",
+      "lastModified": "2024-12-05"
+    },
+    {
+      "id": "api-036",
+      "serverId": "srv-006",
+      "name": "Get Notification History",
+      "method": "GET",
+      "endpoint": "/api/notifications/history",
+      "status": "running",
+      "lastModified": "2024-12-02"
+    },
+    {
+      "id": "api-037",
+      "serverId": "srv-006",
+      "name": "Update Notification Settings",
+      "method": "PUT",
+      "endpoint": "/api/notifications/settings",
+      "status": "stopped",
+      "lastModified": "2024-11-30"
+    },
+    {
+      "id": "api-038",
+      "serverId": "srv-006",
+      "name": "Delete Notification",
+      "method": "DELETE",
+      "endpoint": "/api/notifications/:id",
+      "status": "running",
+      "lastModified": "2024-12-01"
+    },
+    {
+      "id": "api-039",
+      "serverId": "srv-006",
+      "name": "Batch Send Notifications",
+      "method": "POST",
+      "endpoint": "/api/notifications/batch",
+      "status": "error",
+      "lastModified": "2024-11-28"
+    },
+    {
+      "id": "api-040",
+      "serverId": "srv-007",
+      "name": "Get User Analytics",
+      "method": "GET",
+      "endpoint": "/api/analytics/users",
+      "status": "running",
+      "lastModified": "2024-12-07"
+    },
+    {
+      "id": "api-041",
+      "serverId": "srv-007",
+      "name": "Get Sales Metrics",
+      "method": "GET",
+      "endpoint": "/api/analytics/sales",
+      "status": "running",
+      "lastModified": "2024-12-06"
+    },
+    {
+      "id": "api-042",
+      "serverId": "srv-007",
+      "name": "Get Traffic Data",
+      "method": "GET",
+      "endpoint": "/api/analytics/traffic",
+      "status": "running",
+      "lastModified": "2024-12-08"
+    },
+    {
+      "id": "api-043",
+      "serverId": "srv-007",
+      "name": "Get Conversion Rates",
+      "method": "GET",
+      "endpoint": "/api/analytics/conversions",
+      "status": "running",
+      "lastModified": "2024-12-05"
+    },
+    {
+      "id": "api-044",
+      "serverId": "srv-007",
+      "name": "Generate Report",
+      "method": "POST",
+      "endpoint": "/api/analytics/reports",
+      "status": "running",
+      "lastModified": "2024-12-04"
+    },
+    {
+      "id": "api-045",
+      "serverId": "srv-007",
+      "name": "Export Analytics Data",
+      "method": "GET",
+      "endpoint": "/api/analytics/export",
+      "status": "running",
+      "lastModified": "2024-12-03"
+    },
+    {
+      "id": "api-046",
+      "serverId": "srv-007",
+      "name": "Get Dashboard Stats",
+      "method": "GET",
+      "endpoint": "/api/analytics/dashboard",
+      "status": "running",
+      "lastModified": "2024-12-09"
+    },
+    {
+      "id": "api-047",
+      "serverId": "srv-007",
+      "name": "Track Event",
+      "method": "POST",
+      "endpoint": "/api/analytics/track",
+      "status": "stopped",
+      "lastModified": "2024-11-29"
+    },
+    {
+      "id": "api-048",
+      "serverId": "srv-007",
+      "name": "Get Real-time Metrics",
+      "method": "GET",
+      "endpoint": "/api/analytics/realtime",
+      "status": "running",
+      "lastModified": "2024-12-10"
+    },
+    {
+      "id": "api-049",
+      "serverId": "srv-007",
+      "name": "Configure Analytics",
+      "method": "PUT",
+      "endpoint": "/api/analytics/config",
+      "status": "error",
+      "lastModified": "2024-11-25"
+    },
+    {
+      "id": "api-050",
+      "serverId": "srv-007",
+      "name": "Delete Analytics Data",
+      "method": "DELETE",
+      "endpoint": "/api/analytics/data/:id",
+      "status": "running",
+      "lastModified": "2024-12-02"
+    },
+    {
+      "id": "api-051",
+      "serverId": "srv-007",
+      "name": "Get Custom Reports",
+      "method": "GET",
+      "endpoint": "/api/analytics/custom-reports",
+      "status": "stopped",
+      "lastModified": "2024-11-20"
+    },
+    {
+      "id": "api-052",
+      "serverId": "srv-008",
+      "name": "Upload File",
+      "method": "POST",
+      "endpoint": "/api/files/upload",
+      "status": "running",
+      "lastModified": "2024-11-27"
+    },
+    {
+      "id": "api-053",
+      "serverId": "srv-008",
+      "name": "Download File",
+      "method": "GET",
+      "endpoint": "/api/files/:id/download",
+      "status": "stopped",
+      "lastModified": "2024-11-25"
+    },
+    {
+      "id": "api-054",
+      "serverId": "srv-008",
+      "name": "Delete File",
+      "method": "DELETE",
+      "endpoint": "/api/files/:id",
+      "status": "running",
+      "lastModified": "2024-11-28"
+    }
+  ]
+}

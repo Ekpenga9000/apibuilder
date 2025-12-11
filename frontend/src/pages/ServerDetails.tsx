@@ -1,18 +1,8 @@
-import { useState } from "react";
 import { GoChevronRight } from "react-icons/go";
 import { Link, useParams } from "react-router-dom";
 import ServerDetailsHead from "../components/ServerDetailsHead";
 import servers from "../data/servers.json";
-
-interface ServerDetailsHeadProps {
-  id: string | number;
-  name: string;
-  description?: string;
-  totalApis?: number;
-  activeApis?: number;
-  inactiveApis?: number;
-  status?: "running" | "stopped" | "error";
-}
+import APIList from "../components/APIList";
 
 const ServerDetails = () => {
   const { serverId } = useParams<{ serverId: string }>();
@@ -41,7 +31,8 @@ const ServerDetails = () => {
         inactiveApis={server?.inactiveApis || 0}
         status={server?.status as "running" | "stopped" | "error" | undefined}
       />
-      {/* Server details content goes here */}
+      {/* Server APIs */}
+      <APIList serverId={server?.id || ""} />
     </section>
   );
 };
