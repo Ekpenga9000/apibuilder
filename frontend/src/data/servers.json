@@ -3,6 +3,7 @@
     {
       "id": "srv-001",
       "name": "User Service Management",
+      "description": "Manages user accounts, profiles, and authentication workflows",
       "totalApis": 5,
       "activeApis": 4,
       "inactiveApis": 1,
@@ -12,6 +13,7 @@
     {
       "id": "srv-002",
       "name": "Order Processing",
+      "description": "",
       "totalApis": 8,
       "activeApis": 7,
       "inactiveApis": 1,
@@ -21,6 +23,7 @@
     {
       "id": "srv-003",
       "name": "Inventory Management",
+      "description": "Real-time inventory tracking and stock management system",
       "totalApis": 9,
       "activeApis": 9,
       "inactiveApis": 0,
@@ -30,6 +33,7 @@
     {
       "id": "srv-004",
       "name": "Payment Gateway Integration",
+      "description": "",
       "totalApis": 6,
       "activeApis": 5,
       "inactiveApis": 1,
@@ -39,6 +43,7 @@
     {
       "id": "srv-005",
       "name": "Authentication Service",
+      "description": "Handles OAuth2, JWT tokens, and session management",
       "totalApis": 4,
       "activeApis": 4,
       "inactiveApis": 0,
@@ -48,6 +53,7 @@
     {
       "id": "srv-006",
       "name": "Notification Service",
+      "description": "",
       "totalApis": 7,
       "activeApis": 5,
       "inactiveApis": 2,
@@ -57,6 +63,7 @@
     {
       "id": "srv-007",
       "name": "Analytics Engine",
+      "description": "Processes and aggregates user behavior and business metrics",
       "totalApis": 12,
       "activeApis": 10,
       "inactiveApis": 2,
@@ -66,6 +73,7 @@
     {
       "id": "srv-008",
       "name": "File Storage Service",
+      "description": "",
       "totalApis": 3,
       "activeApis": 2,
       "inactiveApis": 1,
