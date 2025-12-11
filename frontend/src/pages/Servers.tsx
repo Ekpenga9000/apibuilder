@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { GoChevronRight } from "react-icons/go";
-import ServerList from "./ServerList";
+import ServerList from "../components/ServerList";
 
 type BreadcrumbLevel = "servers" | "server-detail" | "api-crud";
 
@@ -9,7 +9,7 @@ interface Breadcrumb {
   level: BreadcrumbLevel;
 }
 
-const Server = () => {
+const Servers = () => {
   const [currentLevel, setCurrentLevel] = useState<BreadcrumbLevel>("servers");
   const [selectedServer, setSelectedServer] = useState<string>("");
   const [selectedApi, setSelectedApi] = useState<string>("");
@@ -158,4 +158,4 @@ const Server = () => {
   );
 };
 
-export default Server;
+export default Servers;
