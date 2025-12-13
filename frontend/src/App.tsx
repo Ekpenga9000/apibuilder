@@ -7,6 +7,7 @@ import Servers from "./pages/Servers";
 import DataViewer from "./pages/DataViewer";
 import Accounts from "./pages/Accounts";
 import ServerDetails from "./pages/ServerDetails";
+import APIDetails from "./components/APIDetails";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/servers" element={<Servers />} />
             <Route path="/servers/:serverId" element={<ServerDetails />} />
+            <Route
+              path="/servers/:serverId/apis/:apiId"
+              element={<APIDetails />}
+            />
             <Route path="/data_viewer" element={<DataViewer />} />
             <Route path="/account" element={<Accounts />} />
           </Route>

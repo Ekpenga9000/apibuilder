@@ -1,3 +1,4 @@
+import { Link, useParams } from "react-router-dom";
 import { StatusPill, MethodsPill } from "./ServerPills";
 import { GoPencil, GoTrash } from "react-icons/go";
 
@@ -19,6 +20,7 @@ const APIItem = ({
   status,
   lastModified,
 }: APIItemProps) => {
+  const { serverId } = useParams<{ serverId: string }>();
   return (
     <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
       <td className="py-3 px-4">{name}</td>
@@ -30,13 +32,17 @@ const APIItem = ({
         <StatusPill status={status} />
       </td>
       <td className="py-3 px-4">{lastModified}</td>
-      <td className="py-3 px-4">
-        <button className="text-blue-500 hover:underline mr-4">
+      <td className="py-3 px-4 flex items-center">
+        <Link
+          to={`/servers/${serverId}/apis/${id}`}
+          className="text-blue-500 hover:underline mr-4">
           <GoPencil />
-        </button>
-        <button className="text-red-500 hover:underline">
+        </Link>
+        <Link
+          to={`/servers/${serverId}/apis/${id}/delete`}
+          className="text-red-500 hover:underline">
           <GoTrash />
-        </button>
+        </Link>
       </td>
     </tr>
   );
