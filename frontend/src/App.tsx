@@ -8,6 +8,8 @@ import DataViewer from "./pages/DataViewer";
 import Accounts from "./pages/Accounts";
 import ServerDetails from "./pages/ServerDetails";
 import APIDetails from "./components/APIDetails";
+import NotFound from "./pages/NotFound";
+import Welcome from "./pages/Welcome";
 
 function App() {
   return (
@@ -15,7 +17,8 @@ function App() {
       <div className="App">
         <Toaster position="top-right" reverseOrder={false} />
         <Routes>
-          <Route path="/" element={<h1>Welcome to the Frontend</h1>} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Welcome />} />
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/servers" element={<Servers />} />
