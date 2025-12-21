@@ -15,6 +15,8 @@ import TermsOfService from "./pages/TermsOfService";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Login from "./pages/Login";
+import ResetPassword from "./pages/ResetPassword";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
