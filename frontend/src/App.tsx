@@ -10,6 +10,9 @@ import ServerDetails from "./pages/ServerDetails";
 import APIDetails from "./components/APIDetails";
 import NotFound from "./pages/NotFound";
 import Welcome from "./pages/Welcome";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
         <Routes>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Welcome />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/servers" element={<Servers />} />
