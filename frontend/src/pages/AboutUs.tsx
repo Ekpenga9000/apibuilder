@@ -24,10 +24,10 @@ const AboutUs = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-20">
+      <section className="bg-gradient-to-r from-gray-100 to-gray-50 text-gray-800 py-20">
         <div className="max-w-4xl mx-auto px-8 text-center">
           <h1 className="text-5xl font-bold mb-6">About APIBuildr</h1>
-          <p className="text-xl text-orange-100 leading-relaxed">
+          <p className="text-xl text-gray-600 leading-relaxed">
             Empowering developers to build better software, faster.
           </p>
         </div>

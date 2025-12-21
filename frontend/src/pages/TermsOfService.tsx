@@ -24,10 +24,10 @@ const TermsOfService = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-16">
+      <section className="bg-gradient-to-r from-gray-100 to-gray-50 text-gray-800 py-16">
         <div className="max-w-4xl mx-auto px-8">
           <h1 className="text-4xl font-bold mb-4">Terms of Service</h1>
-          <p className="text-orange-100 text-lg">
+          <p className="text-gray-600 text-lg">
             Last updated: December 20, 2025
           </p>
         </div>
@@ -116,14 +116,15 @@ const TermsOfService = () => {
                 4. Intellectual Property
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                The Service and its original content, features, and functionality
-                are and will remain the exclusive property of APIBuildr and its
-                licensors. The Service is protected by copyright, trademark, and
-                other laws of both the United States and foreign countries.
+                The Service and its original content, features, and
+                functionality are and will remain the exclusive property of
+                APIBuildr and its licensors. The Service is protected by
+                copyright, trademark, and other laws of both the United States
+                and foreign countries.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Our trademarks and trade dress may not be used in connection with
-                any product or service without the prior written consent of
+                Our trademarks and trade dress may not be used in connection
+                with any product or service without the prior written consent of
                 APIBuildr.
               </p>
             </div>
@@ -134,11 +135,11 @@ const TermsOfService = () => {
                 5. User Content
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                You retain all rights to any content you submit, post, or display
-                on or through the Service ("User Content"). By submitting User
-                Content, you grant us a worldwide, non-exclusive, royalty-free
-                license to use, reproduce, and display such content in connection
-                with providing the Service.
+                You retain all rights to any content you submit, post, or
+                display on or through the Service ("User Content"). By
+                submitting User Content, you grant us a worldwide,
+                non-exclusive, royalty-free license to use, reproduce, and
+                display such content in connection with providing the Service.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 You represent and warrant that you own or control all rights to
@@ -159,8 +160,8 @@ const TermsOfService = () => {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 We reserve the right to modify, suspend, or discontinue the
-                Service (or any part thereof) at any time, with or without notice.
-                We will not be liable to you or any third party for any
+                Service (or any part thereof) at any time, with or without
+                notice. We will not be liable to you or any third party for any
                 modification, suspension, or discontinuation of the Service.
               </p>
             </div>
@@ -180,8 +181,8 @@ const TermsOfService = () => {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Our total liability to you for any damages arising out of or
-                related to these Terms or the Service shall not exceed the amount
-                you have paid to us in the twelve (12) months immediately
+                related to these Terms or the Service shall not exceed the
+                amount you have paid to us in the twelve (12) months immediately
                 preceding the event giving rise to the liability.
               </p>
             </div>
@@ -259,7 +260,8 @@ const TermsOfService = () => {
             Ready to Get Started?
           </h2>
           <p className="text-gray-600 text-lg mb-8">
-            Join thousands of developers building better software with APIBuildr.
+            Join thousands of developers building better software with
+            APIBuildr.
           </p>
           <Link
             to="/register"

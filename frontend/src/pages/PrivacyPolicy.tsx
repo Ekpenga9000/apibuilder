@@ -24,10 +24,10 @@ const PrivacyPolicy = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-16">
+      <section className="bg-gradient-to-r from-gray-100 to-gray-50 text-gray-800 py-16">
         <div className="max-w-4xl mx-auto px-8">
           <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
-          <p className="text-orange-100 text-lg">
+          <p className="text-gray-600 text-lg">
             Last updated: December 20, 2025
           </p>
         </div>
@@ -178,8 +178,8 @@ const PrivacyPolicy = () => {
                 5. Data Security
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                We implement appropriate technical and organizational measures to
-                protect your information against unauthorized or unlawful
+                We implement appropriate technical and organizational measures
+                to protect your information against unauthorized or unlawful
                 processing, accidental loss, destruction, or damage. These
                 include:
               </p>
@@ -212,8 +212,8 @@ const PrivacyPolicy = () => {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 When you delete your account, we will delete or anonymize your
-                personal information within a reasonable timeframe, unless we are
-                required to retain it for legal purposes.
+                personal information within a reasonable timeframe, unless we
+                are required to retain it for legal purposes.
               </p>
             </div>
 
@@ -223,8 +223,8 @@ const PrivacyPolicy = () => {
                 7. Your Rights
               </h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Depending on your location, you may have certain rights regarding
-                your personal information:
+                Depending on your location, you may have certain rights
+                regarding your personal information:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
                 <li>
@@ -248,8 +248,8 @@ const PrivacyPolicy = () => {
                   personal information
                 </li>
                 <li>
-                  <strong>Restriction:</strong> Request restriction of processing
-                  in certain circumstances
+                  <strong>Restriction:</strong> Request restriction of
+                  processing in certain circumstances
                 </li>
               </ul>
               <p className="text-gray-600 leading-relaxed mt-4">
@@ -271,8 +271,8 @@ const PrivacyPolicy = () => {
               <p className="text-gray-600 leading-relaxed mb-4">
                 We use cookies and similar tracking technologies to track
                 activity on our Service and hold certain information. You can
-                instruct your browser to refuse all cookies or to indicate when a
-                cookie is being sent.
+                instruct your browser to refuse all cookies or to indicate when
+                a cookie is being sent.
               </p>
               <p className="text-gray-600 leading-relaxed">
                 We use both session cookies (which expire when you close your
@@ -287,8 +287,8 @@ const PrivacyPolicy = () => {
                 9. Third-Party Links
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                Our Service may contain links to third-party websites. We are not
-                responsible for the privacy practices or content of these
+                Our Service may contain links to third-party websites. We are
+                not responsible for the privacy practices or content of these
                 external sites. We encourage you to review the privacy policies
                 of any third-party sites you visit.
               </p>
