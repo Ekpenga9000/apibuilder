@@ -1,9 +1,11 @@
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
+    "firstName" TEXT NOT NULL,
+    "lastName" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
-    "imageUrl" TEXT,
+    "profileImg" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -32,9 +34,7 @@ CREATE TABLE "Session" (
 -- CreateTable
 CREATE TABLE "_UserRoles" (
     "A" INTEGER NOT NULL,
-    "B" INTEGER NOT NULL,
-
-    CONSTRAINT "_UserRoles_AB_pkey" PRIMARY KEY ("A","B")
+    "B" INTEGER NOT NULL
 );
 
 -- CreateIndex
@@ -45,6 +45,9 @@ CREATE UNIQUE INDEX "Role_name_key" ON "Role"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Session_token_key" ON "Session"("token");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "_UserRoles_AB_unique" ON "_UserRoles"("A", "B");
 
 -- CreateIndex
 CREATE INDEX "_UserRoles_B_index" ON "_UserRoles"("B");
