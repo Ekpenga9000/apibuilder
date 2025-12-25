@@ -1,4 +1,4 @@
-import prisma from "./prisma";
+import prisma from "./config/prisma";
 
 async function main() {
   const testEmail = "test@example.com";
@@ -27,7 +27,7 @@ async function main() {
 
   /**
    * 3. Ensure roles exist
-   */
+  //  */
   const [userRole, adminRole] = await Promise.all([
     prisma.role.upsert({
       where: { name: "user" },
