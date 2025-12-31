@@ -8,6 +8,16 @@ import { signAccessToken, signRefreshToken } from "../utils/jwt";
 export const register = async (req: Request, res: Response) => {
   const { firstName, lastName, email, password, confirmPassword } = req.body;
 
+  if (!email.trim()) {
+    return res.status(400).json({ message: "Provide an email address." });
+  }
+
+  if (!firstName.trim() || !lastName.trim()) {
+    return res.status(400).json({
+      message: "Please ensure both first name and last name are provided.",
+    });
+  }
+
   if (firstName.trim().length < 2 || lastName.trim().length < 2) {
     return res.status(400).json({
       message: "First and last names must be at least 2 characters long",
@@ -39,8 +49,25 @@ export const register = async (req: Request, res: Response) => {
   }
 
   try {
+    const exisitingUser = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (exisitingUser) {
+      if (
+        exisitingUser.firstName.toLocaleLowerCase() ===
+          firstName.toLocaleLowerCase() ||
+        exisitingUser.lastName.toLocaleLowerCase() ===
+          lastName.toLocaleLowerCase()
+      ) {
+        res.status(409).json({ message: "User already exists." });
+      } else {
+        res.status(409).json({ message: "Email address already in use." });
+      }
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await prisma.user.create({
+    await prisma.user.create({
       data: {
         firstName,
         lastName,
@@ -48,7 +75,13 @@ export const register = async (req: Request, res: Response) => {
         password: hashedPassword,
       },
     });
-    res.status(201).json({ message: "User registered successfully", user });
+
+    const isRegistrationComplete = true;
+
+    res.status(201).json({
+      message: "User registered successfully",
+      registered: isRegistrationComplete,
+    });
   } catch (error) {
     res.status(500).json({ message: "Internal server error", error });
   }

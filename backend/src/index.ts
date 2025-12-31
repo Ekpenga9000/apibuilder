@@ -1,16 +1,21 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
-
-// Load environment variables from .env file
-dotenv.config();
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+import authRoutes from "./routes/auth.routes";
+import userRoutes from "./routes/user.routes";
+import testRoutes from "./routes/test.routes";
 
 // Routes
+const app = express();
+dotenv.config();
+const apiRouter = express.Router();
+app.use("/api", apiRouter);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+const PORT = process.env.PORT || 3001;
+apiRouter.use("/auth", authRoutes);
+apiRouter.use("/users", userRoutes);
+apiRouter.use("/test", testRoutes);
+
 app.get("/", (req: Request, res: Response) => {
   res.json({ message: "Welcome to the API" });
 });
