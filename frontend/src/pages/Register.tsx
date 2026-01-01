@@ -1,9 +1,12 @@
 import { useState } from "react";
+import axios from "axios";
 import AuthFormLayout from "../layouts/AuthFormLayout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -123,9 +126,9 @@ const Register = () => {
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    setIsSubmitting(true);
     // Mark all fields as touched
     setTouched({
       firstName: true,
@@ -158,9 +161,40 @@ const Register = () => {
     }
 
     // Form is valid, proceed with submission
-    toast.success("Account created successfully!");
-    console.log("Form submitted:", formData);
-    // Add your API call here
+
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/api/auth/register",
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          password: formData.password,
+          confirmPassword: formData.confirmPassword,
+        }
+      );
+      if (response.status === 201) {
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
+        toast.success(response.data.message);
+        toast.success("You'll be navigated to the login page.");
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error: any) {
+      toast.error(error.response.data.message);
+      console.log(error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Color and width based on strength
@@ -320,6 +354,7 @@ const Register = () => {
         </div>
         <button
           type="submit"
+          disabled={isSubmitting}
           className="w-full bg-orange-600 text-white p-2 rounded hover:bg-orange-700 transition-colors font-semibold cursor-pointer">
           Create account
         </button>
