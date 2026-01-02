@@ -3,6 +3,7 @@ import prisma from "../config/prisma";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { signAccessToken, signRefreshToken } from "../utils/jwt";
+import { prismaVersion } from "../generated/prisma/internal/prismaNamespace";
 
 // User registration
 export const register = async (req: Request, res: Response) => {
@@ -121,16 +122,18 @@ export const login = async (req: Request, res: Response) => {
       },
     });
 
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "development",
+      sameSite: "strict",
+      path: "/api/auth/refresh",
+    });
+
     res.status(200).json({
       message: "Login successful",
       accessToken,
-      refreshToken,
       user: {
         userId: user.userId,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        roles: user.roles.map((role) => role.name),
       },
     });
   } catch (error) {
@@ -140,7 +143,8 @@ export const login = async (req: Request, res: Response) => {
 
 // auth/refresh-token
 export const refreshToken = async (req: Request, res: Response) => {
-  const { refreshToken } = req.body;
+  const { refreshToken } = req.cookies;
+
   if (!refreshToken) {
     return res
       .status(401)
@@ -183,9 +187,15 @@ export const refreshToken = async (req: Request, res: Response) => {
       },
     });
 
+    res.cookie("refreshToken", newRefreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/api/auth/refresh",
+    });
+
     res.status(200).json({
       accessToken: newAccessToken,
-      refreshToken: newRefreshToken,
     });
   } catch (error) {
     res.status(500).json({ message: "Internal server error", error });
@@ -194,15 +204,29 @@ export const refreshToken = async (req: Request, res: Response) => {
 
 // User logout
 export const logout = async (req: Request, res: Response) => {
-  // Invalidate token logic can be implemented here if using a token blacklist
+  const refreshToken = req.cookies.refreshToken;
 
-  const { refreshToken } = req.body;
-  if (refreshToken) {
+  if (!refreshToken) {
+    return res.status(200).json({ message: "Already logged out" });
+  }
+
+  try {
     await prisma.session.deleteMany({
       where: { token: refreshToken },
     });
-    res.status(204).send({ message: "Logout successful" });
-  } else {
-    res.status(400).json({ message: "Refresh token is required for logout" });
+
+    res.clearCookie("refreshToken", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/api/auth/refresh",
+    });
+
+    return res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      message: "Failed to logout. Please try again.",
+    });
   }
 };
