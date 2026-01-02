@@ -91,10 +91,13 @@ const Login = () => {
 
     try {
       // Replace with your actual API endpoint
-      const response = await axios.post("/api/auth/login", {
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        "http://localhost:4000/api/auth/login",
+        {
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       // Handle successful login
       toast.success("Login successful!");
@@ -106,7 +109,14 @@ const Login = () => {
 
       // Store user data if needed
       if (response.data.user) {
-        localStorage.setItem("user", JSON.stringify(response.data.user));
+        localStorage.setItem(
+          "userID",
+          JSON.stringify(response.data.user.userId)
+        );
+        localStorage.setItem(
+          "accessToken",
+          JSON.stringify(response.data.accessToken)
+        );
       }
 
       // Redirect to dashboard
