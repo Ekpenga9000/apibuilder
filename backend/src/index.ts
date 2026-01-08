@@ -4,7 +4,9 @@ import authRoutes from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
 import testRoutes from "./routes/test.routes";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
+const CLIENT_URL = process.env.CLIENT_URL;
 const corsOptions = {
   origin: process.env.CLIENT_URL, // your frontend server
   // methods: "GET, HEAD, PUT, PATCH, POST, DELETE", // include DELETE
@@ -13,9 +15,10 @@ const corsOptions = {
 };
 
 const app = express();
-app.use(express.json());
-dotenv.config();
 app.use(cors(corsOptions));
+app.use(express.json());
+app.use(cookieParser());
+dotenv.config();
 const apiRouter = express.Router();
 app.use("/api", apiRouter);
 
@@ -36,4 +39,5 @@ app.get("/api/health", (req: Request, res: Response) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`This is the client's url: ${CLIENT_URL}`);
 });

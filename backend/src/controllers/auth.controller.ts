@@ -124,9 +124,9 @@ export const login = async (req: Request, res: Response) => {
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "development",
-      sameSite: "strict",
-      path: "/api/auth/refresh",
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/api/auth",
     });
 
     res.status(200).json({
@@ -152,6 +152,8 @@ export const refreshToken = async (req: Request, res: Response) => {
   }
 
   try {
+    jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET!);
+
     const session = await prisma.session.findUnique({
       where: { token: refreshToken },
       include: { user: { include: { roles: true } } },
@@ -190,8 +192,8 @@ export const refreshToken = async (req: Request, res: Response) => {
     res.cookie("refreshToken", newRefreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      path: "/api/auth/refresh",
+      sameSite: "lax",
+      path: "/api/auth",
     });
 
     res.status(200).json({
@@ -218,8 +220,8 @@ export const logout = async (req: Request, res: Response) => {
     res.clearCookie("refreshToken", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      path: "/api/auth/refresh",
+      sameSite: "lax",
+      path: "/api/auth",
     });
 
     return res.status(200).json({ message: "Logged out successfully" });
