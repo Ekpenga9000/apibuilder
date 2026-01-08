@@ -1,4 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -23,9 +25,22 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setAccessToken(token);
   };
 
-  const logout = () => {
-    localStorage.removeItem("accessToken");
-    setAccessToken(null);
+  const logout = async () => {
+    try {
+      await axios.post(
+        "http://localhost:4000/api/auth/logout",
+        {},
+        { withCredentials: true }
+      );
+    } catch (error) {
+      toast.error(
+        "Something went wrong when logging you out. Please try again."
+      );
+      console.log(error);
+    } finally {
+      localStorage.removeItem("accessToken");
+      setAccessToken(null);
+    }
   };
 
   return (

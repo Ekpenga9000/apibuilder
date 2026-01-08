@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import AuthFormLayout from "../layouts/AuthFormLayout";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 const Login = () => {
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -100,11 +102,10 @@ const Login = () => {
       );
 
       // Handle successful login
-      toast.success("Login successful!");
-
       // Store token if your API returns one
-      if (response.data.token) {
-        localStorage.setItem("accessToken", response.data.token);
+      if (response.data.accessToken) {
+        await login(response.data.accessToken);
+        toast.success("Login successful!");
       }
 
       // Store user data if needed
@@ -112,10 +113,6 @@ const Login = () => {
         localStorage.setItem(
           "userID",
           JSON.stringify(response.data.user.userId)
-        );
-        localStorage.setItem(
-          "accessToken",
-          JSON.stringify(response.data.accessToken)
         );
       }
 
