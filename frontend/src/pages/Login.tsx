@@ -104,7 +104,7 @@ const Login = () => {
 
       // Store token if your API returns one
       if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("accessToken", response.data.token);
       }
 
       // Store user data if needed

@@ -190,7 +190,9 @@ const Register = () => {
         toast.error(response.data.message);
       }
     } catch (error: any) {
-      toast.error(error.response.data.message);
+      toast.error(
+        "Something went wrong when trying to register new user. Please try again."
+      );
       console.log(error);
     } finally {
       setIsSubmitting(false);
